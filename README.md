@@ -1,5 +1,9 @@
 # xin-clock
 
+[github](https://github.com/tonioloewald/xin-clock/) | [live demo](https://tonioloewald.github.io/xin-clock/) | [npm](https://www.npmjs.com/package/xin-clock)
+
+**blueprint src url** `https://tonioloewald.github.io/xin-clock/dist/blueprint.js`
+
 This is an implemention of the Swiss Railway Clock adapted from an old
 [b8rjs demo component](https://b8rjs.com/?source=components/swiss-clock.js).
 It is implemented as a xinjs `blueprint` (i.e. a component definition with
