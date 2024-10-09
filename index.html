@@ -1,0 +1,94 @@
+<title>Component Test</title>
+<script type="module">
+  import { makeComponent } from 'https://cdn.jsdelivr.net/npm/xinjs@0.7.1/dist/module.js'
+  const blueprint = (await import('./dist/blueprint.js')).default
+
+  makeComponent('xin-clock', blueprint)
+</script>
+<xin-loader>
+  <xin-blueprint
+    tag="xin-test"
+    src="https://tonioloewald.github.io/xin-test/dist/blueprint.js"
+  ></xin-blueprint>
+</xin-loader>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+  body {
+    font-family: 'Roboto Slab', serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+  }
+
+  .row,
+  .column {
+    display: flex;
+    gap: 10px;
+  }
+
+  .column {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .custom {
+    --swiss-clock-face-fill: black;
+    --swiss-clock-tick-fill: green;
+    --swiss-clock-hour-fill: yellow;
+    --swiss-clock-minute-fill: red;
+    --swiss-clock-second-fill: blue;
+    --swiss-clock-face-stroke: limegreen;
+  }
+
+  .small {
+    --swiss-clock-size: 128px;
+  }
+</style>
+<h1>Component Test</h1>
+<foo-bar></foo-bar>
+<hr />
+
+<xin-clock></xin-clock>
+
+<div class="row">
+  <div class="column">
+    <h3>Sweep Hand</h3>
+    <xin-clock update-interval="30"></xin-clock>
+  </div>
+
+  <div class="column">
+    <h3>Customized</h3>
+    <xin-clock class="custom" update-interval="30"></xin-clock>
+  </div>
+
+  <div class="column">
+    <h3>Timezones</h3>
+    <xin-clock
+      class="small"
+      update-interval="10000"
+      timezone="Australia/Sydney"
+    >
+      Sydney
+    </xin-clock>
+    <xin-clock class="small" update-interval="10000" timezone="America/Denver">
+      Denver
+    </xin-clock>
+  </div>
+
+  <div class="column">
+    <h3>Fixed Time</h3>
+    <xin-clock
+      class="small"
+      time="1976-04-01T08:23:45.678Z"
+      timezone="America/Los_Angeles"
+    ></xin-clock>
+  </div>
+</div>
+
+<hr />
+
+<h2>Tests</h2>
+<xin-test description="blueprint hydrates" delay="100">
+  return ( document.querySelector('foo-bar').constructor !==
+  document.querySelector('xin-clock').constructor )
+</xin-test>
