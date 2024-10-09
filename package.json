@@ -1,8 +1,9 @@
 {
   "name": "xin-clock",
-  "module": "dist/blueprint.js",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
+  "main": "./dist/blueprint.js",
+  "exports": "./dist/blueprint.js",
   "devDependencies": {
     "@types/bun": "latest",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
